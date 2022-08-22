@@ -1,0 +1,430 @@
+{
+  "intents": [
+    {
+      "intent": "Bem-vindo",
+      "examples": [
+        {
+          "text": "Você pode me ajudar?"
+        }
+      ],
+      "description": "Mensagem de boas-vindas"
+    },
+    {
+      "intent": "bolsa",
+      "examples": [
+        {
+          "text": "Como faço intercâmbio com bolsa?"
+        },
+        {
+          "text": "Como faço para estudar fora com bolsa?"
+        },
+        {
+          "text": "É possível estudar com bolsa no exterior?"
+        }
+      ],
+      "description": "Se informar sobre bolsas no exterior"
+    },
+    {
+      "intent": "contato",
+      "examples": [
+        {
+          "text": "Como entro em contato para saber mais?"
+        },
+        {
+          "text": "Como faço para entrar em contato?"
+        },
+        {
+          "text": "Quero entrar em contato"
+        }
+      ],
+      "description": "Informações de contato"
+    },
+    {
+      "intent": "convênios",
+      "examples": [
+        {
+          "text": "Onde posso estudar no exterior?"
+        },
+        {
+          "text": "Quais são as parcerias internacionais?"
+        },
+        {
+          "text": "Quais universidades posso estudar lá fora?"
+        }
+      ],
+      "description": "Convênios internacionais com a FEI"
+    },
+    {
+      "intent": "cursos",
+      "examples": [
+        {
+          "text": "Em quais universidades posso fazer cursos?"
+        },
+        {
+          "text": "Quais cursos posso fazer?"
+        },
+        {
+          "text": "Quais são os cursos disponíveis?"
+        }
+      ],
+      "description": "Cursos disponíveis no exterior"
+    },
+    {
+      "intent": "dupla-diplomação",
+      "examples": [
+        {
+          "text": "Como funciona a dupla-diplomação?"
+        },
+        {
+          "text": "Como posso fazer dupla-diplomação?"
+        },
+        {
+          "text": "Quero fazer dupla-diplomação"
+        }
+      ],
+      "description": "Informações sobre dupla-diplomação"
+    },
+    {
+      "intent": "exterior",
+      "examples": [
+        {
+          "text": "Como faço intercâmbio?"
+        },
+        {
+          "text": "Como faço para estudar no exterior?"
+        },
+        {
+          "text": "É possível estudar no exterior?"
+        }
+      ],
+      "description": "Informações sobre estudar no exterior"
+    },
+    {
+      "intent": "intercâmbio",
+      "examples": [
+        {
+          "text": "Do que preciso para fazer intercâmbio?"
+        },
+        {
+          "text": "Quais são os pré-requisitos para fazer intercâmbio?"
+        },
+        {
+          "text": "Quero fazer intercâmbio"
+        }
+      ],
+      "description": "Informações sobre intercâmbio"
+    },
+    {
+      "intent": "parceria-bolsa",
+      "examples": [
+        {
+          "text": "Em qual lugar posso pegar a bolsa?"
+        },
+        {
+          "text": "Quais são as opções de bolsa?"
+        },
+        {
+          "text": "Quais são as parcerias que dão bolsa?"
+        }
+      ],
+      "description": "Opções de bolsa com parceria"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "sys-currency",
+      "values": []
+    },
+    {
+      "entity": "sys-date",
+      "values": []
+    },
+    {
+      "entity": "sys-number",
+      "values": []
+    },
+    {
+      "entity": "sys-percentage",
+      "values": []
+    },
+    {
+      "entity": "sys-time",
+      "values": []
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "bolsa",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O Centro Universitário FEI oferece, através de parceiros, a oportunidade dos seus alunos participarem de processos seletivos para bolsas de estudo no exterior."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1661121195711"
+      },
+      "conditions": "#bolsa",
+      "dialog_node": "node_10_1661122813867",
+      "previous_sibling": "node_9_1661122586575"
+    },
+    {
+      "type": "standard",
+      "title": "cursos",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Existem diversos cursos de línguas providos em universidades no exterior, como por exemplo: Alemão na Karlsruhe Institute of Technology, Catalão na na Universidad Autònoma de Barcelona, Chinês no CLE, Francês na Aliança Francesa, Espanhol na UAH e Inglês no NYIT"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1661121195711"
+      },
+      "conditions": "#cursos",
+      "dialog_node": "node_10_1661122856862",
+      "previous_sibling": "node_10_1661122813867"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Do que você precisa?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "node_1_1661121195711",
+      "previous_sibling": "node_6_1661123413224"
+    },
+    {
+      "type": "standard",
+      "title": "parceria-bolsa",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O Centro Universitário FEI tem parcerias para bolsa no exterior nos programas: Santander Universidades, TOP España, Bolsas Ibero-Americanas, Fórmula Santander, Santander Mundi e Capes / Brafitec"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1661121195711"
+      },
+      "conditions": "#parceria-bolsa",
+      "dialog_node": "node_3_1661123256919",
+      "previous_sibling": "node_9_1661123169389"
+    },
+    {
+      "type": "standard",
+      "title": "exterior",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O Centro Universitário FEI mantém convênios de colaboração com instituições estrangeiras permitindo que a comunidade acadêmica tenha substanciais experiências no exterior."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1661121195711"
+      },
+      "conditions": "#exterior",
+      "dialog_node": "node_4_1661122401954",
+      "previous_sibling": "node_6_1661120704840"
+    },
+    {
+      "type": "standard",
+      "title": "Bem-vindo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Claro, do que você precisa?"
+              },
+              {
+                "text": "Claro, com o que posso te ajudar?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Bem-vindo",
+      "dialog_node": "node_6_1661120704840"
+    },
+    {
+      "type": "standard",
+      "title": "contato",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Para entrar em contato:\n\n- E-mail: internacional@fei.edu.br\n- Telefone: +55 11 4353- 2900 Ramal: 2234\n- Local: Campus São Bernardo do Campo - Prédio D - Térreo - Sala 07"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1661121195711"
+      },
+      "conditions": "#contato",
+      "dialog_node": "node_6_1661123413224",
+      "previous_sibling": "node_3_1661123256919"
+    },
+    {
+      "type": "standard",
+      "title": "intercâmbio",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": " O candidato a ser selecionado e indicado pelo Centro Universitário FEI à instituição anfitriã deverá preencher, obrigatoriamente, os seguintes requisitos:\n\n- Estar regularmente matriculado no Centro Universitário FEI;\n- Estar em dia com as obrigações assumidas no Contrato de Prestação de Serviços Educacionais assinado com a FEI;\n- Ter integralizado no mínimo 30% do currículo previsto para seu curso, no momento do início previsto da viagem de estudos;\n- Ter média aritmética de todas as disciplinas cursadas igual ou maior a 6,0 (seis);\n- Manifestar compromisso de retornar ao Brasil após o período de estudos no exterior para conclusão dos estudos de graduação no Centro Universitário FEI;\n- Possuir proficiência no idioma do curso de destino*."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1661121195711"
+      },
+      "conditions": "#intercâmbio",
+      "dialog_node": "node_7_1661123081393",
+      "previous_sibling": "node_10_1661122856862"
+    },
+    {
+      "type": "standard",
+      "title": "convênios",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A FEI tem parceria com universidades em diversos países: Alemanha no Karlsruhe Institute of Technology, Argentina na Universidade Católica de Córdoba, Canadá na Conestoga, Chile na Universidad Alberto Hurtado, Espanha na Universidad de Alicante, França no ICAM e etc"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1661121195711"
+      },
+      "conditions": "#convênios",
+      "dialog_node": "node_9_1661122586575",
+      "previous_sibling": "node_4_1661122401954"
+    },
+    {
+      "type": "standard",
+      "title": "dupla-diplomação",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O Centro Universitário FEI mantém acordos internacionais para programas de dupla-diplomação, possibilitando que os participantes obtenham dois diplomas ao término do curso de graduação. Na prática, abrem novas oportunidades para o exercício acadêmico ou profissional no exterior, sem necessidade de revalidação de diploma. As equivalências curriculares das duas instituições permitem a outorga dos diplomas em menor tempo, garantindo a capacitação em tecnologia de ponta, a formação crítica e excelente qualidade de ensino. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1661121195711"
+      },
+      "conditions": "#dupla-diplomação",
+      "dialog_node": "node_9_1661123169389",
+      "previous_sibling": "node_7_1661123081393"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "Canhoto-dialog",
+  "language": "en",
+  "description": ""
+}
